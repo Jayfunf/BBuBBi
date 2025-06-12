@@ -10,9 +10,25 @@ import SwiftUI
 struct SearchTabView: View {
     @State private var inputText: String = ""
     @State private var searchResults: [BusArrivalPreview] = []
+    @State private var selectedBus: BusArrivalPreview? = nil
     @FocusState private var isFocused: Bool
 
     var body: some View {
+        VStack(spacing: 20) {
+            if let selected = selectedBus {
+                BusDetailView(
+                    bus: selected,
+                    stationName: "광교중앙역",
+                    onBack: { selectedBus = nil }
+                )
+            } else {
+                searchSection
+            }
+        }
+        .padding(.top, 30)
+    }
+
+    var searchSection: some View {
         VStack(spacing: 20) {
             HStack {
                 TextField("버스 번호를 입력하세요", text: $inputText)
@@ -36,41 +52,58 @@ struct SearchTabView: View {
                         .cornerRadius(12)
                 }
             }
-            .padding(.horizontal)
+
+            if !inputText.isEmpty {
+                Text("\(inputText)")
+                    .font(.system(size: 80, weight: .bold))
+            }
 
             if searchResults.isEmpty {
                 Text("검색 결과가 없습니다")
                     .font(.title3)
                     .foregroundColor(.gray)
-                    .padding(.top, 40)
+                    .padding(.top, 20)
             } else {
                 List(searchResults) { result in
-                    VStack(spacing: 8) {
-                        Text(result.routeNo)
-                            .font(.system(size: 32, weight: .bold))
-                        Text("\(result.arrivalInMinutes)분 후 도착")
-                            .font(.title3)
-                            .foregroundColor(.orange)
-                        Text("\(result.stopsRemaining) 정거장 전")
-                            .font(.body)
-                            .foregroundColor(.gray)
-                    }
-                    .frame(maxWidth: .infinity)
-                    .padding()
-                    .background(Color(.systemGray6))
-                    .cornerRadius(20)
-                }
-            }
+                    Button {
+                        selectedBus = result
+                    } label: {
+                        VStack(spacing: 16) {
+                            Text(result.routeNo)
+                                .font(.system(size: 80, weight: .bold))
+                                .foregroundColor(.black)
 
+                            Text("\(result.arrivalInMinutes)분 후 도착")
+                                .font(.system(size: 40, weight: .bold))
+                                .foregroundColor(.orange)
+
+                            Text("\(result.stopsRemaining) 정거장 전")
+                                .font(.system(size: 30, weight: .bold))
+                                .foregroundColor(.gray)
+                        }
+                        .frame(maxWidth: .infinity)
+                        .padding(.horizontal, 8)
+                        .padding(.vertical, 16)
+                        .background(Color(.systemGray6))
+                        .cornerRadius(20)
+                    }
+                    .listRowInsets(EdgeInsets())
+                    .listRowSeparator(.hidden)
+                    
+                }
+                .listRowBackground(Color.white)
+                .background(Color.white)
+                .scrollContentBackground(.hidden)
+            }
             Spacer()
         }
-        .padding(.top, 30)
     }
 
-    // MARK: - 검색 로직 (더미)
     func performSearch() {
         let dummy = [
             BusArrivalPreview(routeNo: "10-4", arrivalInMinutes: 5, stopsRemaining: 2),
+            BusArrivalPreview(routeNo: "10-4", arrivalInMinutes: 10, stopsRemaining: 5),
+            BusArrivalPreview(routeNo: "10-4", arrivalInMinutes: 23, stopsRemaining: 11),
             BusArrivalPreview(routeNo: "99-2", arrivalInMinutes: 9, stopsRemaining: 3),
             BusArrivalPreview(routeNo: "42", arrivalInMinutes: 1, stopsRemaining: 1)
         ]
@@ -80,3 +113,4 @@ struct SearchTabView: View {
         }
     }
 }
+

@@ -18,6 +18,7 @@
 		F18DEAB02DF17A2600C3A091 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F18DEAAF2DF17A2600C3A091 /* ContentView.swift */; };
 		F18DEAB22DF17A2800C3A091 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F18DEAB12DF17A2800C3A091 /* Assets.xcassets */; };
 		F18DEAB52DF17A2800C3A091 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F18DEAB42DF17A2800C3A091 /* Preview Assets.xcassets */; };
+		F19E21BB2DFA56A6009BD99C /* BusDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F19E21BA2DFA56A6009BD99C /* BusDetailView.swift */; };
 		F1FB012F2DF9B1D300B63121 /* StationTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1FB012E2DF9B1D300B63121 /* StationTabView.swift */; };
 		F1FB01312DF9B20E00B63121 /* StationListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1FB01302DF9B20E00B63121 /* StationListView.swift */; };
 		F1FB01332DF9B22300B63121 /* BusListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1FB01322DF9B22300B63121 /* BusListView.swift */; };
@@ -38,6 +39,7 @@
 		F18DEAAF2DF17A2600C3A091 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		F18DEAB12DF17A2800C3A091 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		F18DEAB42DF17A2800C3A091 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		F19E21BA2DFA56A6009BD99C /* BusDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BusDetailView.swift; sourceTree = "<group>"; };
 		F1FB012E2DF9B1D300B63121 /* StationTabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StationTabView.swift; sourceTree = "<group>"; };
 		F1FB01302DF9B20E00B63121 /* StationListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StationListView.swift; sourceTree = "<group>"; };
 		F1FB01322DF9B22300B63121 /* BusListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BusListView.swift; sourceTree = "<group>"; };
@@ -73,6 +75,7 @@
 				F1FB01302DF9B20E00B63121 /* StationListView.swift */,
 				F1FB01322DF9B22300B63121 /* BusListView.swift */,
 				F1FB01362DF9DE3700B63121 /* SearchTabView.swift */,
+				F19E21BA2DFA56A6009BD99C /* BusDetailView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -208,6 +211,7 @@
 				F12C617C2DF4C7D3007A695C /* FavoriteManager.swift in Sources */,
 				F16A0FF52DF7F0DF00B059D4 /* City.swift in Sources */,
 				F12C61832DF4CBBB007A695C /* BusArrival.swift in Sources */,
+				F19E21BB2DFA56A6009BD99C /* BusDetailView.swift in Sources */,
 				F1FB012F2DF9B1D300B63121 /* StationTabView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
