@@ -18,7 +18,7 @@ struct SearchTabView: View {
             if let selected = selectedBus {
                 BusDetailView(
                     bus: selected,
-                    stationName: "광교중앙역",
+                    stationName: "정부청사역",
                     onBack: { selectedBus = nil }
                 )
             } else {
@@ -89,7 +89,7 @@ struct SearchTabView: View {
                     }
                     .listRowInsets(EdgeInsets())
                     .listRowSeparator(.hidden)
-                    
+                    .padding(.bottom, 15)
                 }
                 .listRowBackground(Color.white)
                 .background(Color.white)
@@ -101,11 +101,16 @@ struct SearchTabView: View {
 
     func performSearch() {
         let dummy = [
-            BusArrivalPreview(routeNo: "10-4", arrivalInMinutes: 5, stopsRemaining: 2),
+            BusArrivalPreview(routeNo: "10-4", arrivalInMinutes: 1, stopsRemaining: 1),
             BusArrivalPreview(routeNo: "10-4", arrivalInMinutes: 10, stopsRemaining: 5),
             BusArrivalPreview(routeNo: "10-4", arrivalInMinutes: 23, stopsRemaining: 11),
+            BusArrivalPreview(routeNo: "99-2", arrivalInMinutes: 5, stopsRemaining: 2),
             BusArrivalPreview(routeNo: "99-2", arrivalInMinutes: 9, stopsRemaining: 3),
-            BusArrivalPreview(routeNo: "42", arrivalInMinutes: 1, stopsRemaining: 1)
+            BusArrivalPreview(routeNo: "99-2", arrivalInMinutes: 12, stopsRemaining: 4),
+            BusArrivalPreview(routeNo: "99-2", arrivalInMinutes: 18, stopsRemaining: 6),
+            BusArrivalPreview(routeNo: "42", arrivalInMinutes: 1, stopsRemaining: 1),
+            BusArrivalPreview(routeNo: "42", arrivalInMinutes: 3, stopsRemaining: 2),
+            BusArrivalPreview(routeNo: "42", arrivalInMinutes: 36, stopsRemaining: 14)
         ]
 
         searchResults = dummy.filter {
